@@ -27,9 +27,9 @@ def print_operations(data: list):
     def prt(key):
         return get_val(data, key) # возвращает значение по ключу
     #вывод на печать
-    return (f"{format_date(prt("date"))} {prt("description")}\n"
-            f"{format_number(prt("from"), "from")} -> {format_number(prt("to"), "to")}\n"
-            f"{prt("amount")} {prt("code")}\n")
+    return (f"{format_date(prt('date'))} {prt('description')}\n"
+            f"{format_number(prt('from'), 'from')} -> {format_number(prt('to'), 'to')}\n"
+            f"{prt('amount')} {prt('code')}\n")
 
 
 def get_val(data, key) -> str:
