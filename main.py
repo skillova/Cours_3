@@ -1,6 +1,7 @@
 from func import latests_operations, print_operations
+import pathlib
 
-file_json = "data/operations.json"
+file_json = pathlib.Path.cwd() / "data" / "operations.json"
 
 
 def main(data, num):
