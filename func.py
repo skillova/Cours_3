@@ -12,10 +12,8 @@ def selection_of_operations(list_operations, quantity=5) -> list:
     """
     returns a list of the specified number of dictionaries from a list of dictionaries sorted by value
     """
-    operations_filter = filter(lambda x: x.get("state") == "EXECUTED",
-                               list_operations)  # фильтр списка словарей по значению
-    operations_sort = sorted(operations_filter, key=lambda x: x["date"],
-                             reverse=True)  # сортировка списка словарей по ключу
+    operations_filter = filter(lambda x: x.get("state") == "EXECUTED", list_operations)  # фильтр списка словарей по значению
+    operations_sort = sorted(operations_filter, key=lambda x: x["date"], reverse=True)  # сортировка списка словарей по ключу
     last_operations = operations_sort[:quantity]  # срез последних значений (словарей) в запрашиваемом количестве
     return last_operations  # возвращает список (фильтр словарей->сортировка словарей->количество последних словарей)
 
@@ -44,7 +42,7 @@ def mask_number(line_with_number) -> str:
         number = line_with_number[-1]
     except IndexError:
         return ''
-    if str(line_with_number).startswith('Счет'):
+    if 'Счет' in line_with_number:
         number = f'**{number[-4:]}'
     else:
         number = f'{number[:4]} {number[4:6]}** **** {number[-4:]}'
